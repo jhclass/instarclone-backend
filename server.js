@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import {ApolloServer} from 'apollo-server';
 import schema from './shema';
 
@@ -6,4 +8,4 @@ const server = new ApolloServer({
     schema
 })
 
-server.listen(4000).then(()=>console.log('http://localhost:4000👌'))
+server.listen(process.env.PORT).then(()=>console.log(`http://localhost:${process.env.PORT}👌`))
