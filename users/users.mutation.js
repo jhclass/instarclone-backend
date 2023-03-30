@@ -58,7 +58,16 @@ export default {
                 }
             }
             //check password with args,password
-          
+            //In compare(), the entered password is hashed and compared with the existing password.
+            const passwordOk = await bcrypt.compare(password,user.password);
+            console.log(passwordOk);
+            if(!passwordOk){
+                return {
+                    ok:false,
+                    error:"Incorrect password."
+                }
+            }
+
            
             //issue a token and send it to the user
         }
