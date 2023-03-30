@@ -27,6 +27,14 @@ export default gql`
             username:String!
             password:String!
         ):LoginResult
+        editProfile(
+            firstName:String
+            lastName: String
+            username: String
+            email: String
+            password: String
+        ):User
+
     }
     type Query {
         seeProfile(
