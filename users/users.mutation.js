@@ -9,15 +9,17 @@ export default {
             email,
             password,
         })=> {
-            //check if username or email are already on db
+            try {
+                //check if username or email are already on db
             const exitingUser = await client.user.findFirst({where:{
                 OR:[
                     {username},{email}
                 ]
             }});
-            // if(!exitingUser){
-            //     throw console.error("No one");
-            // }
+            console.log(exitingUser)
+            if(exitingUser){
+                throw new Error("This usename/password is alread taken");
+            }
             //hash password (use bcrypt)
             const uglyPassword = await bcrypt.hash(password,10);
             console.log(uglyPassword);
@@ -41,6 +43,9 @@ export default {
 
         //    return user;
 
+            } catch (error) {
+                return error;
+            }
         }
     }
 }
