@@ -1,5 +1,6 @@
 import client from "../client"
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
 export default {
     Mutation:{
         createAccount: async (_,{
@@ -67,9 +68,12 @@ export default {
                     error:"Incorrect password."
                 }
             }
-
-           
             //issue a token and send it to the user
+            //random keygen (secret_key issuance)
+            //jwt.io (Check token content)
+            const token = await jwt.sign({id:user.id},process.env.SECRET_KEY,{ expiresIn: '14d' })
+            return {ok:true,token}
+
         }
     }
 }
