@@ -1,6 +1,6 @@
-import client from "../client"
+import client from "../../client";
 export default {
-    Query : {
+    Query:{
         seeProfile: async (_,{username})=>{
             //findUnique : find @unique in User model
          const findUser = await client.user.findUnique({where:{username:username}});

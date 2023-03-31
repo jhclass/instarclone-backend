@@ -15,25 +15,14 @@ export default gql`
         error:String
         token:String
     }
+  
     type Mutation {
-        createAccount(
-            firstName:String!
-            lastName: String
-            username: String! 
-            email: String!
-            password: String!
-        ):User
+        
         login(
             username:String!
             password:String!
         ):LoginResult
-        editProfile(
-            firstName:String
-            lastName: String
-            username: String
-            email: String
-            password: String
-        ):User
+       
 
     }
     type Query {
