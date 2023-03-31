@@ -3,14 +3,15 @@ import dotenv from 'dotenv';
 dotenv.config();
 import {ApolloServer} from 'apollo-server';
 import schema from './shema';
+import { getUser } from './users/users.utils';
 
 
 const server = new ApolloServer({
     schema,
-    context: ({req})=> {
+    context: async ({req})=> {
         //console.log(req.headers.token)
         return {
-        "token":req.headers.token
+        "loggedInUser":await getUser(req.headers.token)
         }
     }
 })

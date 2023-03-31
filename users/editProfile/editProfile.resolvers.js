@@ -6,8 +6,8 @@ export default {
         //update Pofile
         //first. First of all, proceed under the premise that the id is known. 
         //second. When changing a password, it is hashed and updated.
-        //add option : Do have token or not. Maybe this is real first better than others. 
-        
+        //add option 1 : Do have token or not. Maybe this is real first better than others. 
+        //add option 2 : if you send a user, not a token.
         editProfile:async(_,{
             firstName,
             lastName,
@@ -15,11 +15,11 @@ export default {
             email,
             password:newPassword,
             
-        },context)=> {
-            //console.log('token:',token) 
-            const token = context.token;
-            const verifiedId = jwt.verify(token,process.env.SECRET_KEY)
-            console.log(verifiedId)
+        },{loggedInUser})=> {
+            //console.log('token:',token) // context => {token}
+            
+            console.log('a',loggedInUser)
+            
             let uglyPassword = null;
             if (newPassword) {
                 uglyPassword = await bcypt.hash(newPassword,10)
@@ -28,7 +28,7 @@ export default {
             //console.log(uglyPassword)
             const ok = await client.user.update({
                 where:{
-                    id:verifiedId.id,
+                    id:loggedInUser.id,
                 },
                 data:{
                     firstName,
