@@ -2,6 +2,8 @@ import client from "../../client"
 import bcrypt from "bcrypt"
 import { protectedResolver } from "../users.utils"
 
+
+
 const resolverFn = async (
     _,
     { firstName, lastName, username, email, password: newPassword,bio },

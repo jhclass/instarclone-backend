@@ -1,20 +1,31 @@
 //agpp-setup
 import dotenv from 'dotenv';
 dotenv.config();
-import {ApolloServer} from 'apollo-server';
+import express from "express";
+import {ApolloServer} from 'apollo-server-express';
 import schema from './shema';
 import { getUser } from './users/users.utils';
 
-
-const server = new ApolloServer({
-    schema,
-    context: async ({req})=> {
-        //console.log(req.headers.token)
-        return {
-        "loggedInUser":await getUser(req.headers.token),
-        
+const startServer = async()=> {
+    const server = new ApolloServer({
+        schema,
+        context: async ({req})=> {
+            //console.log(req.headers.token)
+            return {
+            "loggedInUser":await getUser(req.headers.token),
+            
+            }
         }
-    }
-})
+    })
+    await server.start();
+    const app = express();
+    server.applyMiddleware({app});
+    
+    
+    app.listen({port:process.env.PORT},()=>{
+        console.log(`http://localhost:${process.env.PORT}👌`)
+    })
+    
+}
 
-server.listen(process.env.PORT).then(()=>console.log(`http://localhost:${process.env.PORT}👌`))
+startServer();
