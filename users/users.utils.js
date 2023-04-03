@@ -44,21 +44,8 @@ export const protectedResolver = (ourResolver)=>(root,arg,context,info)=>{
     }
     return ourResolver(root,arg,context,info)
 }
-// export const protectedResolver = (ourResolver) => (
-//     root,
-//     args,
-//     context,
-//     info
-//   ) => {
-//     if (!context.loggedInUser) {
-//       return {
-//         ok: false,
-//         error: "Please log in to perform this action.",
-//       };
-//     }
-//     return ourResolver(root, args, context, info);
-//   };
 
+// same as above It's just a difference between es6 or not
 // export function protectedResolver(ourResolver) {
 //     return function (root, args, context, info) {
 //       if (!context.loggedInUser) {
