@@ -10,25 +10,5 @@ export default gql`
         createdAt: String!
         UpdatedAt: String!
     }
-    type LoginResult {
-        ok:Boolean!
-        error:String
-        token:String
-    }
-  
-    type Mutation {
-        
-        login(
-            username:String!
-            password:String!
-        ):LoginResult
-       
-
-    }
-    type Query {
-        seeProfile(
-            username: String! 
-        ):User
-    }
-
+ 
 `;
