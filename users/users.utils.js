@@ -20,3 +20,12 @@ export const getUser = async (token)=> {
     }
     
 }
+
+
+//protected Resolvers
+export const protectResolver = (user)=> {
+    console.log('a',user) // user 제대로 들어왔어?
+    if(!user){
+        throw new Error("You need to login");
+    }
+}

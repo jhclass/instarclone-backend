@@ -1,6 +1,6 @@
 import client from "../../client"
 import bcypt from "bcrypt"
-import jwt from "jsonwebtoken"
+import { protectResolver } from "../users.utils"
 export default {
     Mutation:{
         //update Pofile
@@ -19,7 +19,7 @@ export default {
             //console.log('token:',token) // context => {token}
             
             console.log('a',loggedInUser)
-            
+            protectResolver(loggedInUser);
             let uglyPassword = null;
             if (newPassword) {
                 uglyPassword = await bcypt.hash(newPassword,10)
