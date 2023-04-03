@@ -1,5 +1,5 @@
 import client from "../../client"
-import bcypt from "bcrypt"
+import bcrypt from "bcrypt"
 import { protectedResolver } from "../users.utils"
 
 const resolverFn = async (
