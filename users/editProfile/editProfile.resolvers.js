@@ -1,6 +1,6 @@
 import client from "../../client"
 import bcypt from "bcrypt"
-import { protectResolver } from "../users.utils"
+
 export default {
     Mutation:{
         //update Pofile
@@ -15,10 +15,10 @@ export default {
             email,
             password:newPassword,
             
-        },{loggedInUser})=> {
+        },{loggedInUser,protectResolver})=> {
             //console.log('token:',token) // context => {token}
             
-            console.log('a',loggedInUser)
+           
             protectResolver(loggedInUser);
             let uglyPassword = null;
             if (newPassword) {
