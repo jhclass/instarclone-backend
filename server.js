@@ -2,6 +2,8 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from "express";
+import logger from 'morgan';
+
 import {ApolloServer} from 'apollo-server-express';
 import schema from './shema';
 import { getUser } from './users/users.utils';
@@ -19,6 +21,7 @@ const startServer = async()=> {
     })
     await server.start();
     const app = express();
+    app.use(logger('tiny'))
     server.applyMiddleware({app});
     
     
