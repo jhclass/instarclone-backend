@@ -3,14 +3,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 import express from "express";
 import logger from 'morgan';
-
+const { ApolloServerPluginLandingPageLocalDefault } = require('apollo-server-core');
 import {ApolloServer} from 'apollo-server-express';
-import schema from './shema';
+import {typeDefs,resolvers} from './shema';
 import { getUser } from './users/users.utils';
 
 const startServer = async()=> {
     const server = new ApolloServer({
-        schema,
+        typeDefs,resolvers,
         context: async ({req})=> {
             //console.log(req.headers.token)
             return {
