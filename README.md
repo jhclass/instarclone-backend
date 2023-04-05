@@ -3,7 +3,7 @@
 ## - Create Account 👌✔
 ## - See Profile 👌✔
 ## - Login 👌✔
-## - Edit Profile
+## - Edit Profile 👌✔
 ## - Follow user
 ## - Unfollow user
-## - Change Avatar (ImageUpload <-X>)
+## - Change Avatar (ImageUpload)
