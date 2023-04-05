@@ -1,12 +1,7 @@
 import client from "../../client"
 import bcrypt from "bcrypt"
 import { protectedResolver } from "../users.utils"
-const {
-  GraphQLUpload,
-  graphqlUploadExpress, // A Koa implementation is also exported.
-} = require('graphql-upload');
-const { finished } = require('stream/promises');
-
+import { GraphQLUpload } from "graphql-upload";
 
 const resolverFn = async (
     _,
@@ -46,10 +41,8 @@ const resolverFn = async (
 
 
 export default {
+
   Upload: GraphQLUpload,
-    Query: {
-      uploads: (_ ,args) => {},
-    },
     Mutation:{
         //update Pofile
         //first. First of all, proceed under the premise that the id is known. 
@@ -58,20 +51,6 @@ export default {
         //add option 2 : if you send a user, not a token.
         //add option 3 : Protect Resolver
         editProfile: protectedResolver(resolverFn),
-        singleUpload: async (parent, { file }) => {
-          const { createReadStream, filename, mimetype, encoding } = await file;
-    
-          // Invoking the `createReadStream` will return a Readable Stream.
-          // See https://nodejs.org/api/stream.html#stream_readable_streams
-          const stream = createReadStream();
-    
-          // This is purely for demonstration purposes and will overwrite the
-          // local-file-output.txt in the current working directory on EACH upload.
-          const out = require('fs').createWriteStream('local-file-output.txt');
-          stream.pipe(out);
-          await finished(out);
-    
-          return { filename, mimetype, encoding };
-        },
+        
     }
 }

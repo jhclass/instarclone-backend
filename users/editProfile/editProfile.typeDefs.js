@@ -11,9 +11,7 @@ export default gql`
         encoding: String!
       }
     
-      type Query {
-        uploads: [File]
-      }
+     
         type Mutation {
             editProfile(
                 firstName:String
@@ -22,9 +20,10 @@ export default gql`
                 email: String
                 password: String
                 bio: String
+                avatar:Upload
                 
             ):EditProfileResult
-            singleUpload(avatar: Upload!): File!
+           
         }
     
 
