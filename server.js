@@ -18,6 +18,7 @@ const startServer = async()=> {
             //console.log(req.headers.token)
             return {
             "loggedInUser":await getUser(req.headers.token),
+            "dirname" : __dirname,
             
             }
         }
@@ -27,6 +28,7 @@ const startServer = async()=> {
     //app.use(logger('tiny'))
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
+
     app.use(graphqlUploadExpress());
     server.applyMiddleware({app});
     
