@@ -12,7 +12,7 @@ import {typeDefs,resolvers} from './shema';
 import { getUser } from './users/users.utils';
 
 const startServer = async()=> {
-    const server = new ApolloServer({
+    const apollo = new ApolloServer({
         typeDefs,resolvers,
         context: async ({req})=> {
             //console.log(req.headers.token)
@@ -23,14 +23,14 @@ const startServer = async()=> {
             }
         }
     })
-    await server.start();
+    await apollo.start();
     const app = express();
     app.use(logger('tiny'))
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     app.use('/uploads',express.static('uploads'));
     app.use(graphqlUploadExpress());
-    server.applyMiddleware({app});
+    apollo.applyMiddleware({app});
     
     
     app.listen({port:process.env.PORT},()=>{
