@@ -25,10 +25,10 @@ const startServer = async()=> {
     })
     await server.start();
     const app = express();
-    //app.use(logger('tiny'))
+    app.use(logger('tiny'))
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-
+    app.use('/uploads',express.static('uploads'));
     app.use(graphqlUploadExpress());
     server.applyMiddleware({app});
     
