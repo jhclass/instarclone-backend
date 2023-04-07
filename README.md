@@ -4,6 +4,10 @@
 ## - See Profile 👌✔
 ## - Login 👌✔
 ## - Edit Profile 👌✔
-## - Follow user
-## - Unfollow user
+## - Follow user 👌✔
+## - Unfollow user 👌✔
+### -- See followers and see Following 👌✔
+### -- pagination
+
+## - Computed Fields
 ## - Change Avatar (ImageUpload)
