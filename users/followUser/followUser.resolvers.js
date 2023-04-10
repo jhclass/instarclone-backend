@@ -1,8 +1,6 @@
 import { protectedResolver } from "../users.utils"
 import client from "../../client"
 
-
-
 export default {
     Mutation: {
         followUser: protectedResolver(async(_,{username},{loggedInUser})=>{

@@ -8,7 +8,7 @@ export default {
                 select: {id:true,username:true}
        
             });
-            console.log(ok);
+            //console.log(ok);
             if(!ok){
                 return {
                     ok:false,
@@ -26,7 +26,7 @@ export default {
             }});
             //follower 라는 필드의 값을 가져오는거야 너의 테이블의 필드명을 확인하자
             //findMany() 가 아니라 count() 쓰면 단순히 숫자를 세기 때문에 length 도 필요없지.
-          console.log(follower);
+          //console.log(follower);
           return {
             ok:true,
             follower,
