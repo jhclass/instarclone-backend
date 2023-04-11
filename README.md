@@ -7,7 +7,7 @@
 ## - Follow user 👌✔
 ## - Unfollow user 👌✔
 ### -- See followers and see Following 👌✔
-### -- pagination
+### -- pagination 👌✔
 
-## - Computed Fields
-## - Change Avatar (ImageUpload)
+## - Computed Fields 👌✔
+## - Change Avatar (ImageUpload) 👌✔
