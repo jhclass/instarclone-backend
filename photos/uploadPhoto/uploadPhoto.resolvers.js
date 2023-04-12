@@ -35,6 +35,8 @@ export default {
                         },
                         ...(hashtagsObj.length > 0 && {
                             hashtags: {
+                                //hashtag 가 있는 곳을 찾아감 Model hashtag
+                                //확실한건 Photo 에 있는 hashtags는 아니라는 것
                                 connectOrCreate: hashtagsObj
                             }
                         })
