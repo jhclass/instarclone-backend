@@ -5,7 +5,7 @@ type Photo {
     user:User!
     file:String!
     caption:String
-    hashTag:[Hashtag]
+    hashTags:[Hashtag]
     createdAt:String!
     updatedAt:String!
 }

@@ -1,33 +1,33 @@
 # What am i doing
 
 =============
-##  Users
+###  Users
 =============
 
-### - Create Account 👌✔
-### - See Profile 👌✔
-### - Login 👌✔
-### - Edit Profile 👌✔
-### - Follow user 👌✔
-### - Unfollow user 👌✔
-#### -- See followers and see Following 👌✔
-#### -- pagination 👌✔
+#### - Create Account 👌✔
+#### - See Profile 👌✔
+#### - Login 👌✔
+#### - Edit Profile 👌✔
+#### - Follow user 👌✔
+#### - Unfollow user 👌✔
+##### -- See followers and see Following 👌✔
+##### -- pagination 👌✔
 
-### - [Computed Fields](https://github.com/jhclass/instarclone-backend/commit/84ff69677c1bf604ccb47698b42ea04d50f91405) 👌✔
-### - Change Avatar (ImageUpload) 👌✔
+#### - [Computed Fields](https://github.com/jhclass/instarclone-backend/commit/84ff69677c1bf604ccb47698b42ea04d50f91405) 👌✔
+#### - Change Avatar (ImageUpload) 👌✔
 
 =============
-## photos
+### photos
 =============
 
-### Upload photo (Parse #)
-### Like / Unlike Photo
-### See Photo
-### Edit Photo
-### See Photo Likes
-### See Feed
-### Search Photos
-### See Hashtags
+#### Upload photo (Parse #) 👌✔
+#### See Photo
+#### Like / Unlike Photo
+#### Edit Photo
+#### See Photo Likes
+#### See Feed
+#### Search Photos
+#### See Hashtags
 
 =============
 ## Comments

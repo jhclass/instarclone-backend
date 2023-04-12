@@ -1,24 +1,24 @@
 import jwt from "jsonwebtoken"
 import client from "../client";
-export const getUser = async (token)=> {
-   
+export const getUser = async (token) => {
+
     try {
-        if(!token){
+        if (!token) {
             return null
         }
-        const verifiedId = await jwt.verify(token,process.env.SECRET_KEY)
-        const user = await client.user.findUnique({where:{id:verifiedId.id}})
+        const verifiedId = await jwt.verify(token, process.env.SECRET_KEY)
+        const user = await client.user.findUnique({ where: { id: verifiedId.id } })
         //console.log('user',user)
         if (user) {
             return user;
-        }else {
+        } else {
             return null;
         }
     } catch {
-        
+
         return null;
     }
-    
+
 }
 
 
@@ -33,16 +33,16 @@ export const getUser = async (token)=> {
 //         }
 //     }
 // }
-export const protectedResolver = (ourResolver)=>(root,arg,context,info)=>{
-    console.log("a",context.loggedInUser);
-    
-    if(!context.loggedInUser){
+export const protectedResolver = (ourResolver) => (root, arg, context, info) => {
+    //console.log("a",context.loggedInUser);
+
+    if (!context.loggedInUser) {
         return {
-            ok:false,
-            error:"Login plz"
+            ok: false,
+            error: "Login plz"
         }
     }
-    return ourResolver(root,arg,context,info)
+    return ourResolver(root, arg, context, info)
 }
 
 // same as above It's just a difference between es6 or not
