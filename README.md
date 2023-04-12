@@ -21,7 +21,8 @@
 =============
 
 #### Upload photo (Parse #) 👌✔
-#### See Photo
+#### See Photo 👌✔
+#### See Hashtag
 #### Like / Unlike Photo
 #### Edit Photo
 #### See Photo Likes

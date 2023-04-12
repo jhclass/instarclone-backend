@@ -13,6 +13,7 @@ type Hashtag {
     id:Int!
     hashtag:String!
     photos:[Photo]
+    totalPhotos:Int
     createdAt:String!
     updatedAt:String!
 
