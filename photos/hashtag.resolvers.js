@@ -1,9 +1,21 @@
 import client from "../client"
 import photosResolvers from "./photos.resolvers";
 export default {
+
     Hashtag: {
+        photos: ({ id }, { page }) => {
+            // cursor pagination
+            console.log(page)
+            return client.hashtag.findUnique({
+
+                where: {
+                    id
+                }
+            }).photos()
+
+        },
         totalPhotos: async ({ id }) => {
-            console.log(id)
+            //console.log(id)
             //좋은 방법이 아님
             // const photos = await client.hashtag.findUnique({
             //     where: {
@@ -23,7 +35,7 @@ export default {
                     }
                 }
             })
-            console.log(photos)
+            //console.log(photos)
             return photos
         }
     }
