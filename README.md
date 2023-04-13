@@ -1,4 +1,14 @@
 # What am i doing
+##### Before work.
+###### 1.prisma extention install.
+###### 2.vscode setting check
+```
+npm i -D prettier-plugin-prisma <br/>
+file - perferences - settings - format 검색 <br/>
+Editor: Default Formatter 는 None 으로 설정 <br/>
+Editor: Format On Save 체크 <br/>
+
+```
 
 =============
 ###  Users
