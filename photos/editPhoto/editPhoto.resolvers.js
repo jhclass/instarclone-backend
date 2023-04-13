@@ -1,21 +1,11 @@
 import { protectedResolver } from "../../users/users.utils";
 import client from "../../client";
+import { processHashtags } from "../photos.utils";
 export default {
     Mutation: {
         editPhoto: protectedResolver(async (_, { id, caption }, context) => {
-            let hashtagsObj = []
-
-            if (caption) {
-
-                const hashtags = caption.match(/#[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|\w]+/g)
-                //console.log('has', hashtags)
-                hashtagsObj = hashtags.map(hashtag => ({
-                    where: { hashtag },
-                    create: { hashtag }
-                })
-                )
-                //console.log(hashtagsObj)
-            }
+            //let hashtagsObj = []
+            //hashtagsObj = processHashtags(caption)
             const oldPhoto = await client.photo.findUnique({
                 where: { id }, //photo's id
                 include: { //hashtags 처럼 불러올수 없는 것들은 include 를사용해
@@ -43,7 +33,7 @@ export default {
                         caption: caption,
                         hashtags: {
                             disconnect: oldPhoto.hashtags,
-                            connectOrCreate: hashtagsObj
+                            connectOrCreate: processHashtags(caption)
                         }
                     }
                 })

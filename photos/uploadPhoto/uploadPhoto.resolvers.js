@@ -1,7 +1,6 @@
 import client from "../../client";
 import { protectedResolver } from "../../users/users.utils";
 import { GraphQLUpload } from "graphql-upload";
-import { hashtagsExtraction } from "../photos.utils";
 
 export default {
     Upload: GraphQLUpload,
@@ -28,7 +27,6 @@ export default {
                 return client.photo.create({
 
                     data: {
-
                         file,
                         caption,
                         user: {
