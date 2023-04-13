@@ -22,9 +22,10 @@
 
 #### Upload photo (Parse #) 👌✔
 #### See Photo 👌✔
-#### See Hashtag
-#### Like / Unlike Photo
+#### See Hashtag 👌✔
+#### Search Photo 👌✔
 #### Edit Photo
+#### Like / Unlike Photo
 #### See Photo Likes
 #### See Feed
 #### Search Photos

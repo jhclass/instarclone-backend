@@ -12,7 +12,7 @@ type Photo {
 type Hashtag {
     id:Int!
     hashtag:String!
-    photos(page:Int):[Photo]
+    photos(lastId:Int):[Photo]
     totalPhotos:Int
     createdAt:String!
     updatedAt:String!

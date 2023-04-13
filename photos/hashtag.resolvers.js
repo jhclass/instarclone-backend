@@ -1,17 +1,23 @@
 import client from "../client"
-import photosResolvers from "./photos.resolvers";
+
 export default {
 
     Hashtag: {
-        photos: ({ id }, { page }) => {
+        photos: ({ id }, { lastId }) => {
             // cursor pagination
-            console.log(page)
+            console.log(lastId)
             return client.hashtag.findUnique({
 
                 where: {
                     id
                 }
-            }).photos()
+            }).photos(
+                {
+                    take: 5,
+                    skip: 1,
+                    ...(lastId && { cursor: { id: lastId } }) //cursor가 정의되어있지 않을 수 있기에.
+                }
+            )
 
         },
         totalPhotos: async ({ id }) => {
