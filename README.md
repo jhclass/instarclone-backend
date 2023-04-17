@@ -34,9 +34,9 @@ Editor: Format On Save 체크
 #### See Photo 👌✔
 #### See Hashtag 👌✔
 #### Search Photo 👌✔
-#### Edit Photo
-#### Like / Unlike Photo
-#### See Photo Likes
+#### Edit Photo 👌✔
+#### Like / Unlike Photo 👌✔
+#### See Photo Likes 👌✔
 #### See Feed
 #### Search Photos
 #### See Hashtags
