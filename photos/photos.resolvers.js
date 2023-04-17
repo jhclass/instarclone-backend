@@ -17,7 +17,11 @@ export default {
 
                 }
             })
+        },
+        likes: ({ id }) => {
+            //console.log(id)
+            return client.like.count({ where: { photoId: id } })
+            //나오긴 하지만 console.log()에는 안찍혀 (prisma promise 거든)
         }
     }
-
 }

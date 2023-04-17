@@ -5,6 +5,7 @@ type Photo {
     user:User!
     file:String!
     caption:String
+    likes:Int!
     hashtags:[Hashtag]
     createdAt:String!
     updatedAt:String!
@@ -16,6 +17,15 @@ type Hashtag {
     totalPhotos:Int
     createdAt:String!
     updatedAt:String!
+
+}
+
+type Like {
+    id:Int!
+    photo:Photo!
+    user:User!
+    createdAt:String!
+    UpdatedAt:String!
 
 }
 `;
