@@ -39,6 +39,7 @@ Editor: Format On Save 체크
 #### See Photo Likes 👌✔
 #### See Feed 👌✔
 #### See photo Comments
+#### isMine(Delete Photo)
 
 =============
 ## Comments
