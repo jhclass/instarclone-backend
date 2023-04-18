@@ -23,20 +23,8 @@ export default {
             return client.like.count({ where: { photoId: id } })
             //나오긴 하지만 console.log()에는 안찍혀 (prisma promise 거든)
         },
-        comments: async ({ id }) => {
-            const comments = await client.comment.findMany({
-                where: {
-                    photoId: id
 
-                }
-
-            })
-            const commentArray = comments.map(comment => comment.payload);
-            console.log(commentArray);
-            return commentArray
-
-        },
-        totalComments: ({ id }) => {
+        comments: ({ id }) => {
             return client.comment.count({
                 where: { photoId: id }
             })
