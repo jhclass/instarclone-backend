@@ -10,7 +10,7 @@ type Photo {
     createdAt:String!
     updatedAt:String!
     isMine:Boolean!
-    comments:[String]
+    comments:Int
     totalComments:Int
 }
 type Hashtag {

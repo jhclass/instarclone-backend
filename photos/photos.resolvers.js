@@ -28,6 +28,15 @@ export default {
             return client.comment.count({
                 where: { photoId: id }
             })
+        },
+        isMine: ({ userId }, _, context) => {
+
+            if (context.loggedInUser && userId === context.loggedInUser.id) {
+                return true
+            } else {
+                return false
+            }
+
         }
     }
 }
