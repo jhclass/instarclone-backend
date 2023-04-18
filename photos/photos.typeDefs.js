@@ -10,6 +10,8 @@ type Photo {
     createdAt:String!
     updatedAt:String!
     isMine:Boolean!
+    comments:[String]
+    totalComments:Int
 }
 type Hashtag {
     id:Int!
@@ -27,6 +29,7 @@ type Like {
     user:User!
     createdAt:String!
     UpdatedAt:String!
+    
 
 }
 `;
