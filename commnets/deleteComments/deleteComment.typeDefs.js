@@ -6,6 +6,6 @@ export default gql`
     error:String
  }
  type Mutation {
-    deleteComment(id:Int!):DeleteCommentsResult!
+    deleteComment(id:Int!):MutationResponse!
  }
 `;
