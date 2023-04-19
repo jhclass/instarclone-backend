@@ -35,14 +35,22 @@ export const getUser = async (token) => {
 // }
 export const protectedResolver = (ourResolver) => (root, arg, context, info) => {
     //console.log("a",context.loggedInUser);
+    //console.log(info); info 의 역할
 
-    if (!context.loggedInUser) {
-        return {
-            ok: false,
-            error: "Login plz"
+    const query = info.operation.operation === 'qeury';
+    if (query) {
+        return ourResolver(root, arg, context, info)
+    } else {
+        if (!context.loggedInUser) {
+            return {
+                ok: false,
+                error: "Login plz"
+            }
         }
+        return ourResolver(root, arg, context, info)
     }
-    return ourResolver(root, arg, context, info)
+
+
 }
 
 // same as above It's just a difference between es6 or not
