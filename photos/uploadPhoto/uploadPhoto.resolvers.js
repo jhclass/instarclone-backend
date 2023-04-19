@@ -44,7 +44,6 @@ export default {
                     }
                 })
 
-
                 //save the photo width the parsed hashtags
                 //add the photo to the hashtags
             }

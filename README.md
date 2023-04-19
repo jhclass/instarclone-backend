@@ -38,14 +38,14 @@ Editor: Format On Save 체크
 #### Like / Unlike Photo 👌✔
 #### See Photo Likes 👌✔
 #### See Feed 👌✔
-#### See photo Comments
-#### isMine(Delete Photo)
+#### See photo Comments 👌✔
+#### isMine(Delete Photo)👌✔
 
 =============
 ## Comments
 =============
 
-### Comment on Photo👌✔
-### Edit Comment
-### Delete Comment
+### Comment on Photo 👌✔
+### Edit Comment 
+### Delete Comment 👌✔
 

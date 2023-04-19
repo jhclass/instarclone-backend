@@ -17,7 +17,7 @@ export default {
                     }
                 }
             })
-            console.log(oldPhoto.hashtags)
+            //console.log(oldPhoto.hashtags)
             //포토의 userId === loggedInUser 의 아이디가 같은지
             if (oldPhoto.userId !== context.loggedInUser.id) {
                 return {
