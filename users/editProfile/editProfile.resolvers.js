@@ -1,21 +1,19 @@
 import client from "../../client"
-
 import bcrypt from "bcrypt"
 import { protectedResolver } from "../users.utils"
 import { GraphQLUpload } from "graphql-upload";
-import { createWriteStream } from 'fs'
-import { uploadPhoto } from "../../shared/shared.utils";
+import { uploadToS3 } from "../../shared/shared.utils";
 
-console.log(__dirname);
+
 const resolverFn = async (
   _,
   { firstName, lastName, username, email, password: newPassword, bio, avatar },
   context
 ) => {
   let avatarUrl = null;
-  console.log(avatar, context.loggedInUser.id)
+  //console.log(avatar, context.loggedInUser.id)
   if (avatar) {
-    avatarUrl = await uploadPhoto(avatar, context.loggedInUser.id)
+    avatarUrl = await uploadToS3(avatar, context.loggedInUser.id, "avatars")
     // const {filename,createReadStream} = await avatar;
     // const newFilename = `${loggedInUser.id}_${Date.now()}_${filename}`
     // console.log(newFilename)
