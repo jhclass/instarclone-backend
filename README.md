@@ -46,6 +46,20 @@ Editor: Format On Save 체크
 =============
 
 ### Comment on Photo 👌✔
-### Edit Comment 
+### Edit Comment 👌✔
 ### Delete Comment 👌✔
+
+=======================
+## Extras
+=======================
+
+### create Room/Message 👌✔
+### see Room 👌✔
+### Send Message (Create Room)
+- A room is created at the same time as sending a message.
+### See Rooms
+
+### RealTime Message
+
+
 
