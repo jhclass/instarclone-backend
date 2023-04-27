@@ -13,7 +13,8 @@ export default {
                                     id: context.loggedInUser.id
                                 }
                             }
-                        }
+                        },
+
                     }
                 )
             }

@@ -54,10 +54,14 @@ Editor: Format On Save 체크
 =======================
 
 ### create Room/Message 👌✔
-### see Room 👌✔
+### see Rooms 👌✔
 ### Send Message (Create Room) 👌✔
 - A room is created at the same time as sending a message.
+### see Room 👌✔
+### Computed Fields 👌✔
+### See read Message 👌✔
 ### RealTime Message
+
 
 
 
