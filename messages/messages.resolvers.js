@@ -17,7 +17,7 @@ export default {
             })
         },
         unreadTotal: (parent, _, context) => {
-            if (!loggedInUser) {
+            if (!context.loggedInUser) {
                 return 0
             }
             return client.message.count({
@@ -26,7 +26,7 @@ export default {
                     roomId: parent.id,
                     user: {
                         id: {
-                            not: loggedInUser.id,
+                            not: context.loggedInUser.id,
                         }
                     }
                 },
