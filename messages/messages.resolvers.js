@@ -33,5 +33,17 @@ export default {
 
             })
         }
+    },
+    Message: {
+        user: ({ id }) => client.message.findUnique({ where: { id } }).user(),
+        isMine: (parent, _, context) => {
+            console.log(parent)
+            if (parent.userId === context.loggedInUser.id) {
+                return true
+            } else {
+                return false
+            }
+
+        }
     }
 }

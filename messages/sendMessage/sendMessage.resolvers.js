@@ -3,7 +3,7 @@ import { protectedResolver } from '../../users/users.utils'
 export default {
     Mutation: {
         sendMessage: protectedResolver(async (_, { roomId, userId, payload }, context) => {
-            console.log(roomId)
+            //console.log(roomId)
             let room = null;
             if (userId && !roomId) {
                 console.log('여기가 출력되나?')
@@ -40,7 +40,7 @@ export default {
                         id: true
                     }
                 })
-                console.log("출력되나요?")
+                //console.log("출력되나요?")
                 if (!room) {
                     return {
                         ok: false,
@@ -48,7 +48,7 @@ export default {
                     }
                 }
             }
-            console.log('룸룸룸룸', room.id)
+            //console.log('룸룸룸룸', room.id)
             await client.message.create({
                 data: {
                     payload,
