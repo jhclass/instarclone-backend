@@ -6,14 +6,16 @@ import { graphqlUploadExpress } from "graphql-upload";
 import express from "express";
 import bodyParser from "body-parser";
 import logger from 'morgan';
+import { createServer } from 'http';
+import { execute, subscribe } from 'graphql';
+import { SubscriptionServer } from 'subscriptions-transport-ws';
 
-
-import {typeDefs,resolvers} from './shema';
+import schema from './shema';
 import { getUser } from './users/users.utils';
 
 const startServer = async()=> {
     const apollo = new ApolloServer({
-        typeDefs,resolvers,
+        schema,
         context: async ({req})=> {
             //console.log(req.headers.token)
             return {
@@ -21,10 +23,20 @@ const startServer = async()=> {
             "dirname" : __dirname,
             
             }
-        }
+        },
+        plugins: [{
+            async serverWillStart() {
+              return {
+                async drainServer() {
+                  subscriptionServer.close();
+                }
+              };
+            }
+        }],
     })
     await apollo.start();
     const app = express();
+    const httpServer = createServer(app);
     app.use(logger('tiny'))
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
@@ -32,8 +44,20 @@ const startServer = async()=> {
     app.use(graphqlUploadExpress());
     apollo.applyMiddleware({app});
     
+    const subscriptionServer = SubscriptionServer.create({
+        // This is the `schema` we just created.
+        schema,
+        // These are imported from `graphql`.
+        execute,
+        subscribe,
+     }, {
+        // This is the `httpServer` we created in a previous step.
+        server: httpServer,
+        // This `server` is the instance returned from `new ApolloServer`.
+        path: apollo.graphqlPath,
+     });
     
-    app.listen({port:process.env.PORT},()=>{
+    httpServer.listen({port:process.env.PORT},()=>{
         console.log(`http://localhost:${process.env.PORT}👌`)
     })
     
