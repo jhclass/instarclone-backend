@@ -32,11 +32,13 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "graphql": "^16.3.0",
+    "graphql-subscriptions": "^2.0.0",
     "graphql-upload": "^13.0.0",
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.22",
-    "stream-promise": "^3.2.0"
+    "stream-promise": "^3.2.0",
+    "subscriptions-transport-ws": "^0.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.3",
