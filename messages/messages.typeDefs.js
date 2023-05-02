@@ -10,6 +10,7 @@ export default gql`
     createdAt: String!
     updatedAt: String!
     isMine:Boolean!
+    myName:String
   }
   
   type Room {

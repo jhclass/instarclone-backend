@@ -70,9 +70,10 @@ export default {
             console.log(payload)
             await pubsub.publish("NEW_MESSAGE", {
                 newMessage: {
-                    payload: payload,
-                    user: context.loggedInUser,
-                    room: room,
+                    payload,
+                    myName: context.loggedInUser.username,
+                    roomId,
+                    userId,
                 }
             });
             //return postController.createPost(payload);
