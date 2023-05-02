@@ -1,5 +1,6 @@
 import client from '../../client'
 import { protectedResolver } from '../../users/users.utils'
+import pubsub from '../../pubsub';
 export default {
     Mutation: {
         sendMessage: protectedResolver(async (_, { roomId, userId, payload }, context) => {
@@ -65,6 +66,15 @@ export default {
 
                 }
             })
+            console.log(payload)
+            await pubsub.publish("NEW_MESSAGE", { 
+                newMessage: {
+                  payload: payload,
+                  user: context.loggedInUser,
+                  room: room,
+                }
+              });
+            //return postController.createPost(payload);
             return {
                 ok: true,
 
