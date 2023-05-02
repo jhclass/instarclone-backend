@@ -49,11 +49,31 @@ const startServer = async () => {
         // These are imported from `graphql`.
         execute,
         subscribe,
+        async onConnect(connectionParams, webSocket, context) {
+            //실행 재실행 후 확인해보라우
+            console.log("onConnect!");
+            const { token } = connectionParams;
+            console.log(token)
+            if (!token) {
+                throw new Error("토큰이 존재하지 않습니다.");
+            }
+            const loggedInUser = await getUser(token);
+            console.log(loggedInUser)
+            return {
+                loggedInUser
+            }
+        },
+        onDisconnect(webSocket, context) {
+            console.log("disConnect!!!")
+        }
+
     }, {
         // This is the `httpServer` we created in a previous step.
         server: httpServer,
         // This `server` is the instance returned from `new ApolloServer`.
         path: apollo.graphqlPath,
+        //subsciprtion?
+
     });
 
     httpServer.listen({ port: process.env.PORT }, () => {
