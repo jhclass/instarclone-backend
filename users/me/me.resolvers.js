@@ -5,7 +5,7 @@ export default {
     me: protectedResolver(async (_, __, context) => {
       const iamuser = await client.user.findUnique({
         where: {
-          id: context.loggedInUser,
+          id: context.loggedInUser.id,
         },
       });
       console.log(iamuser);
