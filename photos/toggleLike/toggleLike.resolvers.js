@@ -34,6 +34,9 @@ export default {
           where: likeWhere,
           //data disconnect
         });
+        return {
+          ok: true,
+        };
       } else {
         // false create now and connect model
         await client.like.create({
