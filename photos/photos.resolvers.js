@@ -23,14 +23,24 @@ export default {
       //나오긴 하지만 console.log()에는 안찍혀 (prisma promise 거든)
     },
 
-    comments: ({ id }) => {
+    commentNumber: ({ id }) => {
       return client.comment.count({
         where: { photoId: id },
       });
     },
+    comments: ({ id }) => {
+      return client.comment.findMany({
+        where: {
+          photoId: id,
+        },
+        include: {
+          user: true,
+        },
+      });
+    },
     isMine: ({ userId }, _, context) => {
       if (!context.loggedInUser) {
-        return true;
+        return false;
       }
       return userId === context.loggedInUser.id;
     },
