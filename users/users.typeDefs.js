@@ -18,7 +18,7 @@ export default gql`
     totalFollower: Int!
     isMe: Boolean!
     isFollowing: Boolean!
-    photos: [Photo]
+    photos(lastId: Int): [Photo]
   }
 `;
 

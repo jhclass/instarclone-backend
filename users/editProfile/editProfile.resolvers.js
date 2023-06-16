@@ -1,9 +1,8 @@
-import client from "../../client"
-import bcrypt from "bcrypt"
-import { protectedResolver } from "../users.utils"
+import client from "../../client";
+import bcrypt from "bcrypt";
+import { protectedResolver } from "../users.utils";
 import { GraphQLUpload } from "graphql-upload";
 import { uploadToS3 } from "../../shared/shared.utils";
-
 
 const resolverFn = async (
   _,
@@ -13,7 +12,7 @@ const resolverFn = async (
   let avatarUrl = null;
   //console.log(avatar, context.loggedInUser.id)
   if (avatar) {
-    avatarUrl = await uploadToS3(avatar, context.loggedInUser.id, "avatars")
+    avatarUrl = await uploadToS3(avatar, context.loggedInUser.id, "avatars");
     // const {filename,createReadStream} = await avatar;
     // const newFilename = `${loggedInUser.id}_${Date.now()}_${filename}`
     // console.log(newFilename)
@@ -37,7 +36,7 @@ const resolverFn = async (
       email,
       bio,
       ...(uglyPassword && { password: uglyPassword }),
-      ...(avatarUrl && { avatar: avatarUrl })
+      ...(avatarUrl && { avatar: avatarUrl }),
     },
   });
   if (updatedUser.id) {
@@ -52,19 +51,15 @@ const resolverFn = async (
   }
 };
 
-
-
 export default {
-
   Upload: GraphQLUpload,
   Mutation: {
     //update Pofile
-    //first. First of all, proceed under the premise that the id is known. 
+    //first. First of all, proceed under the premise that the id is known.
     //second. When changing a password, it is hashed and updated.
-    //add option 1 : Do have token or not. Maybe this is real first better than others. 
+    //add option 1 : Do have token or not. Maybe this is real first better than others.
     //add option 2 : if you send a user, not a token.
     //add option 3 : Protect Resolver
     editProfile: protectedResolver(resolverFn),
-
-  }
-}
+  },
+};
