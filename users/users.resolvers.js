@@ -2,7 +2,7 @@ import client from "../client";
 
 export default {
   User: {
-    totalFollowing: ({ username }) => {
+    totalFollower: ({ username }) => {
       return client.user.count({
         where: {
           following: {
@@ -13,9 +13,9 @@ export default {
         },
       });
     },
-    totalFollower: (root) => {
+    totalFollowing: ({ username }) => {
       //위에랑 같은말입니다.
-      const username = root.username;
+      //const username = root.username;
       return client.user.count({
         where: {
           follower: {
