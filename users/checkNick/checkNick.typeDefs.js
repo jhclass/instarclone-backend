@@ -5,7 +5,7 @@ export default gql`
     ok: Boolean!
     message: String
   }
-  type Query {
+  type Mutation {
     checkNick(nick: String!): CheckAccountResult!
     checkUser(temporaryUser: String!): CheckAccountResult!
   }

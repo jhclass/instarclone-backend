@@ -1,8 +1,8 @@
 import client from "../../client";
 export default {
-  Query: {
+  Mutation: {
     checkNick: async (_, { nick }) => {
-      const regex = /^[A-Za-z0-9]+$/;
+      const regex = /^[a-zA-Zㄱ-ㅎ가-힣0-9]+$/;
       const isEnglish = regex.test(nick);
       if (isEnglish) {
         const checkNick = await client.user.count({
