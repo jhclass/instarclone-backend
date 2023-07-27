@@ -14,7 +14,7 @@ export default {
           file: true,
         },
       }); //end of findUnique()
-      console.log("지워져야할 사진", photo.file);
+      //console.log("지워져야할 사진", photo.file);
       if (!photo) {
         return {
           ok: false,
@@ -44,7 +44,9 @@ export default {
             id,
           },
         }); //end of delete()
-        await deleteToS3(photo.file, "uploads");
+        if (photo.file) {
+          await deleteToS3(photo.file, "uploads");
+        }
         return {
           ok: true,
           error: null,
