@@ -11,7 +11,7 @@ export default {
       // third, Return using reseolver
 
       return client.photo.findMany({
-        take: 5,
+        take: 3,
         skip: offset,
         where: {
           OR: [

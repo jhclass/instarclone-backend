@@ -1,6 +1,6 @@
 import { gql } from "apollo-server-express";
 export default gql`
- type Comment {
+  type Comment {
     id: Int!
     user: User!
     photo: Photo!
@@ -8,5 +8,5 @@ export default gql`
     createdAt: String!
     updatedAt: String!
     isMine: Boolean!
- }
+  }
 `;

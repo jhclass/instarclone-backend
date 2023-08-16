@@ -8,5 +8,12 @@ export default {
       }
       return userId === context.loggedInUser.id;
     },
+    user: ({ userId }) => {
+      return client.user.findUnique({
+        where: {
+          id: userId,
+        },
+      });
+    },
   },
 };
