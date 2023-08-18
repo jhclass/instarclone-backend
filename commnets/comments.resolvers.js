@@ -15,5 +15,12 @@ export default {
         },
       });
     },
+    replies: ({ id }) => {
+      return client.reply.findMany({
+        where: {
+          commentId: id,
+        },
+      });
+    },
   },
 };

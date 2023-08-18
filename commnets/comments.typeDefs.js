@@ -8,5 +8,6 @@ export default gql`
     createdAt: String!
     updatedAt: String!
     isMine: Boolean!
+    replies: [Reply]
   }
 `;

@@ -85,7 +85,7 @@ model Reply {
   payload String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  @@unique([userId, commentId])
+
 }
 model Room {
   id        Int       @id @default(autoincrement())
