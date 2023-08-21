@@ -8,7 +8,7 @@ export default {
         },
       });
     },
-    isMine: ({ userId }, context) => {
+    isMine: ({ userId }, __, context) => {
       if (!context.loggedInUser) {
         return false;
       }
