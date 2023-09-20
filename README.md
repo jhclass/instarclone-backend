@@ -1,5 +1,3 @@
-# HIGHCLASS E&L
-
 # What am i doing
 
 ##### Before work.
